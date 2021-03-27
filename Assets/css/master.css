@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to right, #ffc500, #c21500);
+
+}
+
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  height: 140px;
+  padding-top: 30px;
+}
+
+.nav-left {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 30%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.nav-left img {
+  height: 80%;
+  border-radius: 50%;
+}
+
+.nav-left div.profile-container {
+  color: #FFF;
+  padding-left: 20px;
+}
+
+.nav-left div.profile-container h3 {
+  font-size: 24px;
+}
+
+.nav-left div.profile-container p {
+  color: #bbbbbb;
+  font-size: 14px;
+}
+
+
+.nav-left div.icons-profile {
+  padding-left: 20px;
+}
+
+.nav-left i {
+  color: #FFF;
+  font-size: 30px;
+  padding: 10px;
+}
+
+
+
+
+.nav-right {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 70%;
+  height:100%;
+}
+
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: calc(100vh - 170px);
+}
+
+.notification {
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search {
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.contacts {
+  height: calc(100% - 170px);
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+
+}
+
+
+
+main {
+  display: flex;
+}
+
+.window {
+  width: 70%;
+  height: calc(100vh - 170px);
+}
+
+.messages-window {
+  width: 100%;
+  height: calc(100% - 80px);
+  background: url("../img/mine.jpg");
+  overflow-y: auto;
+
+}
+
+
+
+.text-window {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(30, 30, 30);
+}
