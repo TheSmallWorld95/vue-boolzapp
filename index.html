@@ -57,8 +57,12 @@
             <a href="#"><i class="far fa-edit"></i></a>
           </div>
           <div class="contacts">
-            <div v-for="contact in contacts" class="contacts-profile">
-              <img :src="contact.img" alt="">
+            <div
+              v-for="(contact, i) in contacts"
+              class="contacts-profile"
+              :class="(i == index) ? 'active' : ''"
+              @click="index = i">
+              <img :src="img[i]" alt="">
               <div  class="info-contact">
                 <h5>{{ contact.name }}</h5>
                 <p>Ciao, come stai?</p>
@@ -70,15 +74,17 @@
         </aside>
         <section class="window">
           <div  class="messages-window">
-            <div v-if="contact.visible" v-for="contact in contacts">
-              <div  v-for="message in contact.messages" class="message-container" >
+              <div
+                v-for="message in contacts[index].messages"
+                class="message-container"
+                >
                 <div :class="(message.status == 'sent' ? 'right' : 'left')">
                   <div :class="message.status">
                     <p> {{ message.text }} </p>
+                    <span class="message-time"> {{ time(message.date) }} </span>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
 
           <div class="text-window">
@@ -99,6 +105,8 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
+
   <script src="./Assets/js/dati.js" charset="utf-8"></script>
   <script src="./Assets/js/main.js" charset="utf-8"></script>
 </body>

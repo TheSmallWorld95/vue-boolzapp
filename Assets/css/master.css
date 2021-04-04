@@ -232,6 +232,7 @@ div.info-contact .number-messages {
 
 div.message-container {
   padding: 10px;
+  height: 100px;
 
 }
 
@@ -243,6 +244,8 @@ div.message-container {
   width: 30%;
   display: flex;
   justify-content: center;
+  height: 50px;
+  position: relative;
 }
 
 .received {
@@ -253,6 +256,8 @@ div.message-container {
   width: 30%;
   display: flex;
   justify-content: center;
+  height: 50px;
+  position: relative;
 }
 
 .right {
@@ -264,6 +269,20 @@ div.message-container {
   display: flex;
   justify-content: flex-start;
 }
+
+
+
+span.message-time {
+  font-size: 10px;
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+}
+
+.active {
+  background-color: rgb(30, 30, 30, 0.8);
+}
+
 
 
 .text-window {
