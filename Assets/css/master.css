@@ -205,6 +205,10 @@ div.info-contact h5 {
   font-size: 20px;
 }
 
+div.info-contact p {
+  width: 70%;
+}
+
 div.info-contact span {
   font-size: 12px;
   position: absolute;
@@ -232,19 +236,17 @@ div.info-contact .number-messages {
 
 div.message-container {
   padding: 10px;
-  height: 100px;
-
 }
 
 
 .sent {
   background-color: #50c878;
   border-radius: 10px;
-  padding: 10px;
-  width: 30%;
+  padding: 15px;
+  width: 40%;
+  height: auto;
   display: flex;
   justify-content: center;
-  height: 50px;
   position: relative;
 }
 

@@ -65,8 +65,8 @@
               <img :src="img[i]" alt="">
               <div  class="info-contact">
                 <h5>{{ contact.name }}</h5>
-                <p>Ciao, come stai?</p>
-                <span>03:30 PM</span>
+                <p>{{ getLastMessage(i) }}</p>
+                <span>{{ getLastAccess(i) }}</span>
                 <div class="number-messages">2</div>
               </div>
             </div>
@@ -89,7 +89,11 @@
 
           <div class="text-window">
             <a href="#"> <i class="far fa-smile"></i> </a>
-            <input type="text" name="" value="" placeholder="Insert Text">
+            <input
+              type="text"
+              placeholder="Insert Text"
+              v-model="inputTxt"
+              @keyup.enter="insertTxt">
             <a href="#"> <i class="fas fa-microphone"></i> </a>
           </div>
 
