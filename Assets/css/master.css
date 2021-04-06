@@ -69,6 +69,10 @@ main {
   align-items: center;
 }
 
+.nav-right div.chat-profile {
+  width: 100%;
+}
+
 header nav h3 {
   font-size: 24px;
 }
@@ -81,13 +85,13 @@ header nav p {
 .nav-left div.info-profile,
 .nav-right div.info-contact {
   padding-left: 20px;
+  width: 100%;
 }
 
 
 .nav-right div.icons-chat {
   display: flex;
   justify-content: flex-end;
-  width: 60%;
 }
 
 header nav i {
@@ -212,14 +216,14 @@ div.info-contact p {
 div.info-contact span {
   font-size: 12px;
   position: absolute;
-  top: 25px;
+  top: 17px;
   right: 20px;
 }
 
 div.info-contact .number-messages {
   font-size: 12px;
   position: absolute;
-  top: 45px;
+  top: 40px;
   right: 20px;
   border-radius: 50%;
   background-color: #03c03c;

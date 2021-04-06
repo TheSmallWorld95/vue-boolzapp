@@ -7,10 +7,12 @@ var app = new Vue (
 				"./Assets/img/RonWeasley.jpg",
 				"./Assets/img/RubeusHagrid.jpg",
 				"./Assets/img/HermioneGranger.jpg",
+        "./Assets/img/Dobby.jpg",
 			],
       inputTxt: "",
       index: 0,
-      contacts: contacts
+      searchTxt: "",
+      contacts: contacts,
     },
     methods: {
       time: function (date) {
@@ -18,10 +20,18 @@ var app = new Vue (
         let newSchedule = schedule[1].split(":")
         return `${newSchedule[0]}:${newSchedule[1]}`;
       },
+      getHours: function (index) {
+        let messages = this.contacts[index].messages;
+        let lastIndex = messages.length - 1;
+        let date = messages[lastIndex].date
+        // let newDate = date.split(" ");
+        // let hourDate = newDate[1].split(":");
+        return this.time(date);
+      },
       getLastAccess: function (index) {
         let messages = this.contacts[index].messages;
         let lastIndex = messages.length - 1;
-        return messages[lastIndex].date.split(" ")[1]
+        return messages[lastIndex].date
       },
       getLastMessage: function (index) {
         let messages = this.contacts[index].messages;
@@ -41,16 +51,20 @@ var app = new Vue (
           this.inputTxt = "";
           setTimeout(() => {
             let today = dayjs().format('DD/MM/YY HH:mm:ss');
+            let indexRand = this.createNumber(1,5);
+            let randomText = ["Non saprei","Tendenzialmente","Sicuro","Papaya","Ma sei fuori!?",]
             let receivedMessage = {
               date: today,
-              text: 'ok',
+              text: randomText[indexRand],
               status: 'received'
             }
             this.contacts[indexProfile].messages.push(receivedMessage)
           }, 1000)
         }
-
-      }
+      },
+      createNumber: function (min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
     }
   }
 );

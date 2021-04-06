@@ -26,12 +26,13 @@
               <a href="#"><i class="fas fa-ellipsis-v"></i></a>
             </div>
           </div>
-          <div class="nav-right">
+          <div
+            class="nav-right">
             <div class="chat-profile">
-              <img src="./Assets/img/avatar_8.jpg" alt="">
+              <img :src="img[index]" alt="">
               <div class="info-contact">
-                <h3>Fabio Colombo</h3>
-                <p>Boolean Student</p>
+                <h3>{{ contacts[index].name }}</h3>
+                <p>Ultimo accesso: {{ getLastAccess(index) }}</p>
               </div>
             </div>
             <div class="icons-chat">
@@ -53,7 +54,10 @@
           </div>
           <div class="search">
             <a href="#"> <i class="fas fa-search"></i> </a>
-            <input type="text" name="" value="" placeholder="Search or Start new Chat">
+            <input
+              type="text"
+              placeholder="Search or Start new Chat"
+              v-model="searchTxt">
             <a href="#"><i class="far fa-edit"></i></a>
           </div>
           <div class="contacts">
@@ -61,13 +65,14 @@
               v-for="(contact, i) in contacts"
               class="contacts-profile"
               :class="(i == index) ? 'active' : ''"
-              @click="index = i">
+              @click="index = i"
+              v-if="contact.name.toLowerCase().includes(searchTxt.toLowerCase())">
               <img :src="img[i]" alt="">
               <div  class="info-contact">
                 <h5>{{ contact.name }}</h5>
                 <p>{{ getLastMessage(i) }}</p>
-                <span>{{ getLastAccess(i) }}</span>
-                <div class="number-messages">2</div>
+                <span>{{ getHours(i) }}</span>
+                <div class="number-messages">{{ createNumber(1,10) }}</div>
               </div>
             </div>
           </div>
