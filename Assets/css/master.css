@@ -281,7 +281,7 @@ div.message-container {
 }
 
 div.message-container p {
-  word-break: break-all;
+  word-break: break-word;
 }
 
 span.message-time {
@@ -380,14 +380,12 @@ div.text-window input::placeholder {
 }
 
 @media all and (max-width: 980px) {
-  i.fas,
-  i.far,
+  div.icons-chat i.fas,
+  div.icons-profile i.fas,
+  div.icons-profile i.far,
   div.info-contact span,
   div.number-messages {
     display: none;
-  }
-  aside.sidebar div.message-notification {
-    padding-left: 0;
   }
 
 }

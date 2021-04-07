@@ -63,7 +63,7 @@ var app = new Vue (
           this.inputTxt = "";
           setTimeout(() => {
             let today = dayjs().format('DD/MM/YY HH:mm:ss');
-            let indexRand = this.createNumber(1,5);
+            let indexRand = this.createNumber(1,4);
             let randomText = ["Non saprei","Tendenzialmente","Sicuro","Papaya","Ma sei fuori!?",]
             let receivedMessage = {
               date: today,
