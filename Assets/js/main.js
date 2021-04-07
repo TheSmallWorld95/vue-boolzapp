@@ -22,21 +22,33 @@ var app = new Vue (
       },
       getHours: function (index) {
         let messages = this.contacts[index].messages;
-        let lastIndex = messages.length - 1;
-        let date = messages[lastIndex].date
-        // let newDate = date.split(" ");
-        // let hourDate = newDate[1].split(":");
-        return this.time(date);
+        if (messages.length) {
+          let lastIndex = messages.length - 1;
+          let date = messages[lastIndex].date
+          // let newDate = date.split(" ");
+          // let hourDate = newDate[1].split(":");
+          return this.time(date);
+        } else {
+          return " ";
+        }
       },
       getLastAccess: function (index) {
         let messages = this.contacts[index].messages;
-        let lastIndex = messages.length - 1;
-        return messages[lastIndex].date
+        if (messages.length) {
+          let lastIndex = messages.length - 1;
+          return messages[lastIndex].date
+        } else {
+          return " ";
+        }
       },
       getLastMessage: function (index) {
         let messages = this.contacts[index].messages;
-        let lastIndex = messages.length - 1;
-        return messages[lastIndex].text;
+        if (messages.length) {
+          let lastIndex = messages.length - 1;
+          return messages[lastIndex].text;
+        } else {
+          return " ";
+        }
       },
       insertTxt: function () {
         if (this.inputTxt != '') {
@@ -65,6 +77,31 @@ var app = new Vue (
       createNumber: function (min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
       },
+      showPanel: function (indexMess) {
+        this.contacts[this.index].messages =
+        this.contacts[this.index].messages.map((message, i) => {
+          if (indexMess == i) {
+            return {
+              ...message,
+              showPanel: true,
+            }
+          } else {
+            return {
+              ...message,
+              showPanel: false,
+            }
+          }
+        });
+      },
+      hide: function (indexMess) {
+        let newMessage = this.contacts[this.index].messages[indexMess]
+        if (this.contacts[this.index].messages[indexMess].showPanel == true) {
+          this.contacts[this.index].messages[indexMess].showPanel = false
+        }
+      },
+      removeMess: function (indexMess) {
+        this.contacts[this.index].messages.splice(indexMess, 1)
+      }
     }
   }
 );

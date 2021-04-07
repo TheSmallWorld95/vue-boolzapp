@@ -80,13 +80,32 @@
         <section class="window">
           <div  class="messages-window">
               <div
-                v-for="message in contacts[index].messages"
+                v-for="(message,i) in contacts[index].messages"
                 class="message-container"
                 >
                 <div :class="(message.status == 'sent' ? 'right' : 'left')">
                   <div :class="message.status">
                     <p> {{ message.text }} </p>
                     <span class="message-time"> {{ time(message.date) }} </span>
+                    <a href="#">
+                      <i
+                        class="fas fa-angle-down"
+                        @click="showPanel(i)">
+                      </i>
+                    </a>
+                    <div
+                      class="controls-panel"
+                      :class="(message.showPanel) ? 'dp-block' : 'dp-none' "
+                      @mouseleave="hide(i)">
+                      <div class="Info-message">
+                        Info Message
+                      </div>
+                      <div
+                        class="remove-message"
+                        @click="removeMess(i)">
+                        Remove Message
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
