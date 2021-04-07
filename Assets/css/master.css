@@ -94,10 +94,15 @@ header nav p {
   justify-content: flex-end;
 }
 
+a {
+  text-decoration: none;
+}
+
 header nav i {
   color: #FFF;
   font-size: 30px;
   padding: 10px;
+
 }
 
 .nav-right {
@@ -275,7 +280,9 @@ div.message-container {
   justify-content: flex-start;
 }
 
-
+div.message-container p {
+  word-break: break-all;
+}
 
 span.message-time {
   font-size: 10px;
@@ -346,4 +353,63 @@ div.text-window input::placeholder {
 
 .dp-none {
   display: none;
+}
+
+@media all and (max-width: 1200px) {
+  .window,
+  .nav-right {
+    width: 60%;
+  }
+  .sidebar,
+  .nav-left {
+    width: 40%;
+  }
+
+}
+
+@media all and (max-width: 1050px) {
+  .window,
+  .nav-right {
+    width: 50%;
+  }
+  .sidebar,
+  .nav-left {
+    width: 50%;
+  }
+
+}
+
+@media all and (max-width: 980px) {
+  i.fas,
+  i.far,
+  div.info-contact span,
+  div.number-messages {
+    display: none;
+  }
+  aside.sidebar div.message-notification {
+    padding-left: 0;
+  }
+
+}
+
+@media all and (max-width: 780px) {
+  .nav-right,
+  .window {
+    display: none;
+  }
+  .sidebar,
+  .nav-left {
+    width: 100%;
+  }
+  i.fas,
+  i.far,
+  div.info-contact span,
+  div.number-messages {
+    display: block;
+  }
+  .active {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+
 }
